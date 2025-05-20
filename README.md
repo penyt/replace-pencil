@@ -8,9 +8,9 @@ This is a simple plugin for Obsidian that can let you easily replace the custom 
 - Find and install replace-pencil plugin
 - In `Settings -> Replace pencil`, you can change placeholder prefix.
 - Just simply put any thing that you want to replace in <> (or any placeholder you set), in Reading Mode, the input slot and "Clear" button will appear.
-- Type in the input box, and it will automatically replace the words.
+- Type into the input box, and it will automatically replace the words.
 - Press the "Copy" button at the right of the code block, the text that already replaced will be copied to your clipboard!
-- To reset everything, click the eraser button in the obsidian left side bar. It will immediately reset everything.
+- To reset everything, click the eraser button in the obsidian left sidebar. It will immediately reset everything.
 
 ## DEMO
 Initial Look:
