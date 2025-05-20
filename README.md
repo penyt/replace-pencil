@@ -14,9 +14,9 @@ This is a sample plugin for Obsidian that can let you easily replace the custom 
 - To reset everything, click the eraser button in the obsidian left side bar. It will immediately reset everything.
 
 ## DEMO
-[Initial Look](https://myrr.penli.quest/replace-pencil-demo/replace-pencil-init.png)
+![Initial Look](https://myrr.penli.quest/replace-pencil-demo/replace-pencil-init.png)
 
-[](https://myrr.penli.quest/replace-pencil-demo/replace-pencil-work.png)
+![Replace Pencil Working](https://myrr.penli.quest/replace-pencil-demo/replace-pencil-work.png)
 
 
 ## Donate
