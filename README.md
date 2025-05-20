@@ -6,7 +6,7 @@ This is a simple plugin for Obsidian that can let you easily replace the custom 
 ## How to use?
 
 - Find and install replace-pencil plugin
-- In Setting -> Community plugins -> Replace pencil, you can change placeholder prefix.
+- In `Settings -> Replace pencil`, you can change placeholder prefix.
 - Just simply put any thing that you want to replace in <> (or any placeholder you set), in Reading Mode, the input slot and "Clear" button will appear.
 - Type in the input box, and it will automatically replace the words.
 - Press the "Copy" button at the right of the code block, the text that already replaced will be copied to your clipboard!
