@@ -1,8 +1,73 @@
-/*
+.copy-button {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    padding: 4px 8px;
+    background-color: var(--background-secondary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    z-index: 10;
+}
+  
+.copy-button:hover {
+    background-color: var(--background-secondary-alt);
+    
+}
 
-This CSS file will be included with your plugin, and
-available in the app when your plugin is enabled.
 
-If your plugin does not need CSS, delete this file.
+.replace-pencil-pre {
+    position: relative;
+  }
+  
+  .replace-pencil-container {
+    margin-bottom: 8px;
+  }
+  
+  .replace-pencil-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 4px;
+  }
+  
+  .replace-pencil-input {
+    width: 30%;
+    height: 24px;
+    font-size: 14px;
+    margin: 2px;
+  }
+  
+  .replace-pencil-clear-button {
+    padding: 2px 6px;
+    font-size: 12px;
+    cursor: pointer;
+    height: 24px;
+  }
+  
+  .replace-pencil-copy-button {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    padding: 4px 8px;
+    background-color: var(--background-secondary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .replace-pencil-copy-button:hover {
+    background-color: var(--background-secondary-alt);
+  }
+  
+  .replace-pencil-replaced {
+    background-color: #b0baf7;
+    color: #000;
+    padding: 0 2px;
+    border-radius: 3px;
+  }
 
-*/
+
