@@ -1,7 +1,6 @@
 # Replace Pencil -- Obsidian Plugin
 
-This is a sample plugin for Obsidian that can let you easily replace the custom variable in the code block!",
-
+This is a simple plugin for Obsidian that can let you easily replace the custom variable in the code block!
 
 
 ## How to use?
