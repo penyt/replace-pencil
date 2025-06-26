@@ -68,30 +68,30 @@ export default class ReplaceInCodeBlockPlugin extends Plugin {
         preEl.classList.add("replace-pencil-pre");
 
         const vars: Record<string, string> = {};
-        const container = document.createElement("div");
-        container.classList.add("replace-pencil-container");
+        const container = createDiv({ cls: "replace-pencil-container" });
         preEl.insertAdjacentElement("beforebegin", container);
 
         varMatches.forEach((match) => {
           const key = match.slice(prefix.length, match.length - suffix.length);
           vars[key] = "";
 
-          const inputWrapper = document.createElement("div");
-          inputWrapper.classList.add("replace-pencil-input-wrapper");
+          const inputWrapper = createDiv({ cls: "replace-pencil-input-wrapper" });
 
-          const input = document.createElement("input");
-          input.type = "text";
-          input.placeholder = key;
-          input.classList.add("replace-pencil-input");
+          const input = createEl("input", {
+            type: "text",
+            cls: "replace-pencil-input",
+            attr: { placeholder: key }
+          });
 
           this.registerDomEvent(input, "input", () => {
             vars[key] = input.value;
             renderCode();
           });
 
-          const clearButton = document.createElement("button");
-          clearButton.textContent = "Clear";
-          clearButton.classList.add("replace-pencil-clear-button");
+          const clearButton = createEl("button", {
+            text: "Clear",
+            cls: "replace-pencil-clear-button"
+          });
 
           this.registerDomEvent(clearButton, "click", () => {
             input.value = "";
@@ -104,19 +104,35 @@ export default class ReplaceInCodeBlockPlugin extends Plugin {
           container.appendChild(inputWrapper);
         });
 
-        const copyButton = document.createElement("button");
-        copyButton.className = "replace-pencil-copy-button";
-        copyButton.textContent = "Copy";
+        const copyButton = createEl("button", {
+          cls: "replace-pencil-copy-button",
+          text: "Copy"
+        });
+
         preEl.appendChild(copyButton);
 
-        this.registerDomEvent(copyButton, "click", () => {
-          const text = generatePureText();
-          navigator.clipboard.writeText(text).then(() => {
+        // this.registerDomEvent(copyButton, "click", () => {
+        //   const text = generatePureText();
+        //   navigator.clipboard.writeText(text).then(() => {
+        //     copyButton.textContent = "Copied!";
+        //     window.setTimeout(() => {
+        //       copyButton.textContent = "Copy";
+        //     }, 1500);
+        //   });
+        // });
+
+        this.registerDomEvent(copyButton, "click", async () => {
+          try {
+            const text = generatePureText();
+            await navigator.clipboard.writeText(text);
             copyButton.textContent = "Copied!";
-            setTimeout(() => {
+            window.setTimeout(() => {
               copyButton.textContent = "Copy";
             }, 1500);
-          });
+          } catch (e) {
+            new Notice("Failed to copy :(");
+            console.error(e);
+          }
         });
 
         const renderCode = () => {
@@ -132,7 +148,7 @@ export default class ReplaceInCodeBlockPlugin extends Plugin {
             );
             if (match) {
               const key = match[1];
-              const span = document.createElement("span");
+              const span = createSpan();
               if (vars[key]) {
                 span.textContent = vars[key];
                 span.className = "replace-pencil-replaced";
@@ -141,7 +157,7 @@ export default class ReplaceInCodeBlockPlugin extends Plugin {
               }
               codeEl.appendChild(span);
             } else {
-              codeEl.appendChild(document.createTextNode(frag));
+              codeEl.appendText(frag);
             }
           }
         };
@@ -204,7 +220,7 @@ class ReplaceSettingTab extends PluginSettingTab {
       )
       .descEl.appendChild(createFragment((frag) => {
         frag.appendText("Prefix used for variable placeholders. Only use one of: <, {, [, ( or their doubled versions like {{.");
-        frag.appendChild(document.createElement("br"));
+        frag.appendChild(createEl("br"));
         frag.appendText("Use the 'eraser' button or command palette to reload and apply.");
       }));
   }
